@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title >
+  Yr — the language that both people AI can understand
+</title>
+<meta name="description" content="Yr keeps a whole web project in one file, split by simple markers. AI reads it in one go, edits only the section you asked for, and you can still read every line.">
+<meta name="theme-color" content="#f5f2ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.yr-lang.org/yr.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js">
+</script>
+
+  <link rel="stylesheet" href="./index.vfzukj.css">
+
+</head>
+<body style="display: none">
+<header id="top" class="top">
+  <div class="top-left">
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu">
+</button>
+    <a class="logo" href="/">
+      <img class="logo-mark" src="logo.svg" alt="" width="26" height="26">
+      <span >
+        <span class="__RNMBDfxT">Yr</span>
+        <em >
+          <span class="__KZqyfgna">-lang</span>
+        </em>
+      </span>
+    </a>
+  </div>
+  <nav class="nav">
+    <a class="plain" href="https://yr-lang.org/docs">
+      <span class="__D2dKIj29">Docs</span>
+    </a>
+    <a class="plain" href="https://github.com/yr-lang/yr">
+      <span class="__bMLbdAAo">GitHub</span>
+    </a>
+    <a class="try" href="https://app.yrkit.com/">
+      <span class="__Gnoa4BG3">Try in Yrkit</span>
+    </a>
+  </nav>
+</header>
+<div class="scrim" aria-hidden="true">
+</div>
+<aside id="sidebar" class="sidebar">
+  <nav class="side">
+    <p class="side-title">
+      <span class="__eEHGVAzA">Introduction</span>
+    </p>
+    <a class="side-link is-active" href="#overview">
+      <span class="__WVJQsYGv">Overview</span>
+    </a>
+    <a class="side-link" href="#markers">
+      <span class="__C8dUCABm">The markers</span>
+    </a>
+    <a class="side-link" href="#try">
+      <span class="__KndJEaA5">Try Yr</span>
+    </a>
+    <p class="side-title">
+      <span class="__zR9S1gHr">AI</span>
+    </p>
+    <a class="side-link" href="#build">
+      <span class="__Cv5MtSiT">Easy for AI</span>
+    </a>
+    <a class="side-link" href="#why">
+      <span class="__MHE4MoWV">Why AI writes Yr</span>
+    </a>
+    <a class="side-link" href="#teach">
+      <span class="__KZqyq284">Cheat sheet</span>
+    </a>
+    <p class="side-title">
+      <span class="__HA9zovu3">Reference</span>
+    </p>
+    <a class="side-link" href="#api">
+      <span class="__NxKU39Aa">API</span>
+    </a>
+    <a class="side-link" href="#syntax">
+      <span class="__TMhyh2mc">Syntax</span>
+    </a>
+    <a class="side-link" href="#examples">
+      <span class="__FCyiIOM2">Examples</span>
+    </a>
+    <p class="side-title">
+      <span class="__GiSaqjRv">Tools</span>
+    </p>
+    <a class="side-link" href="#yrkit">
+      <span class="__KTkIh2Kr">Yrkit</span>
+    </a>
+    <a class="side-link" href="#yr-cli">
+      <span class="__Iq6FJSqa">yr-cli</span>
+    </a>
+    <p class="side-title">
+      <span class="__rJ98boC6">Contribute</span>
+    </p>
+    <a class="side-link" href="#free">
+      <span class="__xIMknmMb">Free to use</span>
+    </a>
+    <a class="side-link" href="#support">
+      <span class="__yrCXBO0d">Support the project</span>
+    </a>
+    <p class="side-title">
+      <span class="__ClgbaGPL">Elsewhere</span>
+    </p>
+    <a class="side-link" href="https://github.com/yr-lang/yr">
+      <span class="__Rl8IeFNL">GitHub</span>
+    </a>
+    <a class="side-link" href="https://app.yrkit.com/">
+      <span class="__DMsEI1bU">Yrkit</span>
+    </a>
+  </nav>
+</aside>
+<main class="main">
+  <section id="overview" class="block">
+    <article id="readme" class="readme" aria-busy="true">
+      <p class="readme__status">
+        <span class="__pwGvdyrV">Loading documentation…</span>
+      </p>
+    </article>
+  </section>
+  <section id="markers" class="block">
+    <h2 >
+      <span class="__YTY94oyF">The markers</span>
+    </h2>
+    <p >
+      <span class="__SxUANmNN">That is the whole syntax. Everything inside a section is code you already know.</span>
+    </p>
+    <div class="markers">
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__TpVatEZB">&gt;&lt;</span>
+        </code>
+        <h3 >
+          <span class="__eUJw9frS">Body</span>
+        </h3>
+        <p >
+          <span class="__AatOPmCM">HTML inside the body. Place elements with</span>
+          <code >
+            <span class="__FGPGXTIk">&#95;</span>
+          </code>
+          <span class="__QXFhwdbq">&#46;</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__hpM3WFdc">&gt;&gt;</span>
+        </code>
+        <h3 >
+          <span class="__cFALlSzG">Head</span>
+        </h3>
+        <p >
+          <span class="__Bk7mthS1">Meta tags, links and fonts.</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__Kzdg0twD">##</span>
+        </code>
+        <h3 >
+          <span class="__NMm0HgF8">CSS</span>
+        </h3>
+        <p >
+          <span class="__FJjqn6Wy">Regular CSS, injected as a style block.</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__M8GmfyPr">@@</span>
+        </code>
+        <h3 >
+          <span class="__BH2AR0bC">Frontend JS</span>
+        </h3>
+        <p >
+          <span class="__Ek6uJcqS">JavaScript that runs in the browser.</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__RWAiElOq">&amp;&amp;</span>
+        </code>
+        <h3 >
+          <span class="__fSiW8c1t">Backend JS</span>
+        </h3>
+        <p >
+          <span class="__j97v0cFR">Node.js, compiled as</span>
+          <code >
+            <span class="__l10WOY5g">app.js</span>
+          </code>
+          <span class="__C9PQGNew">&#46;</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__b2eWeKpp">**</span>
+        </code>
+        <h3 >
+          <span class="__r06teLJq">DevOps</span>
+        </h3>
+        <p >
+          <span class="__KkZZPq1V">Build, serve and deploy scripts.</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__J39z4Apq">><</span>
+        </code>
+        <h3 >
+          <span class="__RerLT4QT">Wrapper</span>
+        </h3>
+        <p >
+          <span class="__NBpByUKo">A reusable component with a slot for children.</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__Me9pRs3s">!!</span>
+        </code>
+        <h3 >
+          <span class="__U4RsTEjU">Import</span>
+        </h3>
+        <p >
+          <span class="__ATW45wXm">Bring in another</span>
+          <code >
+            <span class="__cUUaYKNK">&#46;yr</span>
+          </code>
+          <span class="__WV4Ser6u">file.</span>
+        </p>
+      </div>
+      <div class="m">
+        <code class="glyph" aria-hidden="true">
+          <span class="__yTVW72xX">--</span>
+        </code>
+        <h3 >
+          <span class="__yPcWWmFv">NPM</span>
+        </h3>
+        <p >
+          <span class="__RJW6RBYE">Packages installed at build time.</span>
+        </p>
+      </div>
+    </div>
+    <a class="more" href="https://yr-lang.org/docs">
+      <span class="__DuQxBSdT">Full reference</span>
+    </a>
+  </section>
+  <section id="try" class="block">
+    <h2 >
+      <span class="__lgLmuFIM">Try Yr</span>
+    </h2>
+    <p >
+      <span class="__VDZM4ztk">This is a real Yr file running in your browser. Edit it and the preview updates.</span>
+    </p>
+    <div class="yrkit-preview">
+      <div class="yrkit-preview__bar">
+        <span class="yrkit-preview__filename">
+          <span class="__dHOR9LlP">preview.yr</span>
+        </span>
+      </div>
+      <div class="yrkit-preview__editor-wrap">
+        <div id="yr-gutter" class="yrkit-preview__gutter" aria-hidden="true">
+</div>
+        <div class="yrkit-preview__scroll">
+          <pre id="yr-mirror" class="yrkit-preview__mirror" aria-hidden="true">
+</pre>
+          <textarea id="yr-editor" class="yrkit-preview__editor" spellcheck="false" wrap="off" autocapitalize="off" autocomplete="off" autocorrect="off" aria-label="Editor de código yr">
+          </textarea>
+        </div>
+      </div>
+      <iframe id="yr-preview-frame" class="yrkit-preview__frame" sandbox="allow-scripts allow-modals allow-forms" title="Pré-visualização">
+      </iframe>
+    </div>
+  </section>
+  <section id="build" class="hero">
+    <div >
+      <p class="crumb">
+        <span class="__Itc0YnPD">AI</span>
+      </p>
+      <h2 >
+        <span class="__TTuazvw8">A language easy for AI to build with.</span>
+      </h2>
+      <p class="lead">
+        <span class="__XhWlSEJN">Yr keeps a whole web project in one file, split by simple markers. The AI reads everything at once, changes only the section you asked for, and you can still read every line.</span>
+      </p>
+      <div class="actions">
+        <a class="btn" href="https://app.yrkit.com/">
+          <span class="__RZ9kzjCp">Try it in Yrkit</span>
+        </a>
+        <a class="btn ghost" href="https://yr-lang.org/docs">
+          <span class="__ROQFMpdu">Read the docs</span>
+        </a>
+      </div>
+      <p class="status">
+        <span class="__LorOAgPC">Open source, v0.x, early stage. Yr has no variables or loops of its own: logic lives in the JavaScript sections. What is here works, and it runs Yrkit in production.</span>
+      </p>
+    </div>
+    <div class="panel">
+      <p class="ask">
+        <span class="__bFQ7N0fD">Turn the title red and add a /health route.</span>
+      </p>
+      <div class="file">
+        <div class="tab">
+</div>
+        <div class="code" role="img" aria-label="A Yr file with sections for body, CSS, frontend JavaScript and backend JavaScript. The frontend and backend lines added by the AI are highlighted.">
+        </div>
+      </div>
+      <p class="cap">
+        <span class="__cTZ7skX7">Only the</span>
+        <code >
+          <span class="__NsvX53Le">@@</span>
+        </code>
+        <span class="__Qy8qnWzA">and</span>
+        <code >
+          <span class="__GteAHDUF">&amp;&amp;</span>
+        </code>
+        <span class="__ftJuIaAr">sections changed. The rest stayed as it was.</span>
+      </p>
+    </div>
+  </section>
+  <section id="why" class="block">
+    <h2 >
+      <span class="__OH4z6Oo4">Why AI writes Yr well</span>
+    </h2>
+    <p >
+      <span class="__bCNw4JHn">Most projects are spread over dozens of files. Yr is built the other way around.</span>
+    </p>
+    <div class="cols">
+      <div >
+        <h3 >
+          <span class="__I6gwgxgr">The whole feature in one place</span>
+        </h3>
+        <p >
+          <span class="__zRrCK8Yq">Page, style, browser code, server code and deploy scripts sit in the same</span>
+          <code >
+            <span class="__xiLWwKcH">&#46;yr</span>
+          </code>
+          <span class="__JEV3rPvp">file. The AI reads a complete feature at once instead of chasing imports across folders.</span>
+        </p>
+      </div>
+      <div >
+        <h3 >
+          <span class="__z1vqzQnE">Sections are clear boundaries</span>
+        </h3>
+        <p >
+          <span class="__CKeTMMZp">Every section starts with a two-character marker. The AI finds the part to change, edits it, and leaves the rest of the file alone.</span>
+        </p>
+      </div>
+      <div >
+        <h3 >
+          <span class="__RVQeM41J">Nothing new inside</span>
+        </h3>
+        <p >
+          <span class="__DbbDeXJc">Inside each section it is plain HTML, CSS, JavaScript, Node or Bash, which every AI already knows. The only new thing is a short list of markers.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="teach" class="block">
+    <h2 >
+      <span class="__rt854dog">Teach any AI Yr in one paste</span>
+    </h2>
+    <p >
+      <span class="__uJw4kRBV">Copy this cheat sheet into your AI assistant, then ask it for a</span>
+      <code >
+        <span class="__noSfQ8Du">&#46;yr</span>
+      </code>
+      <span class="__zQHISrRe">file. It covers the markers you need for a full page.</span>
+    </p>
+    <div class="spec-head">
+      <span >
+        <span class="__YhLrZaa9">llm.txt</span>
+      </span>
+      <button id="copy" class="btn ghost" type="button">
+        <span class="__NUHktJGe">Copy</span>
+      </button>
+    </div>
+    <pre id="spec" tabindex="0">
+      <span class="__LOu6kbbL">Loading…</span>
+    </pre>
+  </section>
+  <section id="api" class="block">
+    <article id="api-doc" class="readme" aria-busy="true">
+      <p class="readme__status">
+        <span class="__ea69hkrW">Loading documentation…</span>
+      </p>
+    </article>
+  </section>
+  <section id="syntax" class="block">
+    <article id="syntax-doc" class="readme" aria-busy="true">
+      <p class="readme__status">
+        <span class="__ukiym3Wx">Loading documentation…</span>
+      </p>
+    </article>
+  </section>
+  <section id="examples" class="block">
+    <article id="examples-doc" class="readme" aria-busy="true">
+      <p class="readme__status">
+        <span class="__p3TIFGLQ">Loading documentation…</span>
+      </p>
+    </article>
+  </section>
+  <section id="yrkit" class="block">
+    <h2 >
+      <span class="__W1sCSkMM">Yrkit is written in Yr</span>
+    </h2>
+    <p >
+      <span class="__i3vpYtKq">Yrkit is the app where you build systems by talking to an AI. You describe what you want in plain language, and it writes the whole project for you.</span>
+    </p>
+    <p >
+      <span class="__NlxjBHaz">It is written entirely in Yr. Building Yrkit is what pushed the language forward: wherever the project needed something the language could not do yet, the language grew. Today it is the largest project running on Yr, and it works in production.</span>
+    </p>
+    <div class="shots">
+      <figure >
+        <img src="yrkit-prompt.png" alt="A chat prompt in Yrkit on the left and the generated app running on the right" loading="lazy">
+        <figcaption >
+          <span class="__LzTu9CPr">A prompt in, a working app out.</span>
+        </figcaption>
+      </figure>
+      <figure >
+        <img src="yrkit-file.png" alt="The single .yr file behind the generated project, with its sections and markers visible" loading="lazy">
+        <figcaption >
+          <span class="__eKgSzI0y">The whole project stays in one .yr file you can read and edit.</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="actions">
+      <a class="btn" href="https://yrkit.com/">
+        <span class="__r1rXVhJq">See Yrkit</span>
+      </a>
+    </div>
+  </section>
+  <section id="yr-cli" class="block">
+    <h2 >
+      <span class="__uWD0IEeG">yr-cli</span>
+    </h2>
+    <p >
+      <span class="__AbCGWRWd">yr-cli is the command line tool for Yr. It builds, serves and deploys your projects from the terminal.</span>
+    </p>
+    <p >
+      <span class="__XIuUy7ZY">Install it globally with npm:</span>
+    </p>
+    <pre class="snippet">
+      <span class="__C2ouWz7u">npm install -g @yr-lang/yr-cli</span>
+    </pre>
+    <div class="actions">
+      <a class="btn" href="https://www.npmjs.com/package/@yr-lang/yr-cli">
+        <span class="__smLYMaLY">View on npm</span>
+      </a>
+      <a class="btn ghost" href="https://github.com/yr-lang/yr">
+        <span class="__FxbhBh72">GitHub</span>
+      </a>
+    </div>
+  </section>
+  <section id="free" class="block">
+    <h2 >
+      <span class="__EGKeATmd">Free to use, free to study</span>
+    </h2>
+    <div class="cols">
+      <div >
+        <h3 >
+          <span class="__sYHJiFiV">Yr</span>
+        </h3>
+        <p >
+          <span class="__npyfwzmO">The language itself: parser, compiler and runtime. MIT-compatible for personal and commercial use.</span>
+        </p>
+        <a href="https://github.com/yr-lang/yr">
+          <span class="__A19GiaFW">GitHub</span>
+        </a>
+      </div>
+      <div >
+        <h3 >
+          <span class="__ambIugPW">yr-cli</span>
+        </h3>
+        <p >
+          <span class="__RwTmnu09">Command line tools: build, serve and deploy. Install globally with npm and run Yr projects anywhere.</span>
+        </p>
+        <a href="https://www.npmjs.com/package/@yr-lang/yr-cli">
+          <span class="__lMzlL94X">npm</span>
+        </a>
+      </div>
+      <div >
+        <h3 >
+          <span class="__SiWnKES7">@yr-lang/yr</span>
+        </h3>
+        <p >
+          <span class="__jhVW6tlz">The npm package. Use Yr from your own Node.js projects or inside your own tools.</span>
+        </p>
+        <a href="https://www.npmjs.com/package/@yr-lang/yr">
+          <span class="__wnNIsrmb">npm</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="support" class="block">
+    <h2 >
+      <span class="__wUKUxLSd">Support the project</span>
+    </h2>
+    <p >
+      <span class="__CLRcMEsI">Yr is a solo developer project. If it is useful to you, consider supporting its development. It helps keep the infrastructure running and the language moving forward.</span>
+    </p>
+    <div class="actions">
+      <a class="btn" href="https://github.com/sponsors/mwtheus">
+        <span class="__dLHS7fpZ">Sponsor on GitHub</span>
+      </a>
+      <a class="btn ghost" href="https://buy.stripe.com/14AfZgbBffK12Iu1FD0VO00">
+        <span class="__O3isUSRw">Donate by card</span>
+      </a>
+      <a class="btn ghost" href="https://nubank.com.br/cobrar/15ugw7/6978059d-da23-4cf2-81f7-ac4e309b47aa">
+        <span class="__xMkamj96">Pix</span>
+      </a>
+    </div>
+    <p class="disclaimer">
+      <span class="__PtUccS53">Donations do not grant ownership, governance rights, or special influence over the Yr language or ecosystem.</span>
+    </p>
+  </section>
+  <footer >
+    <span >
+      <span class="__skxt0Q02">© 2026 yr-lang™</span>
+    </span>
+    <nav >
+      <a href="https://yr-lang.org/docs">
+        <span class="__y80LkpI2">Docs</span>
+      </a>
+      <a href="https://github.com/yr-lang/yr">
+        <span class="__rDNR6AGr">GitHub</span>
+      </a>
+      <a href="https://www.npmjs.com/package/@yr-lang/yr">
+        <span class="__TusaNRWT">npm</span>
+      </a>
+      <a href="https://yrkit.com/">
+        <span class="__C9yurZKx">Yrkit</span>
+      </a>
+      <a href="mailto:social.lucassouza@gmail.com">
+        <span class="__hpqjXCoB">Email</span>
+      </a>
+    </nav>
+  </footer>
+</main>
+
+
+
+<script id="psj" src="./index.vfzukj.js"></script>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.style.display = 'block';
+});
+</script>
+</html>

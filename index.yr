@@ -1,0 +1,1952 @@
+!! bodyblock
+
+**
+
+___build
+
+cd $_PROJECT_PATH
+rm -rf ../docs/
+cp -r dist/ ../docs
+
+>>
+
+_meta charset="utf-8"
+_meta name="viewport" content="width=device-width, initial-scale=1"
+_title
+  Yr — the language that both people AI can understand
+_meta name="description" content="Yr keeps a whole web project in one file, split by simple markers. AI reads it in one go, edits only the section you asked for, and you can still read every line."
+_meta name="theme-color" content="#f5f2ec"
+_link rel="preconnect" href="https://fonts.googleapis.com"
+_link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
+_link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"
+_script src="https://cdn.yr-lang.org/yr.js"
+_script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+
+><
+
+_header .top #top
+  _ .top-left
+    _button .menu-toggle #menu-toggle type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu"
+    _a .logo href="/"
+      _img .logo-mark src="logo.svg" alt="" width="26" height="26"
+      _span
+        Yr
+        _em
+          -lang
+  _nav .nav
+    _a .plain href="https://yr-lang.org/docs"
+      Docs
+    _a .plain href="https://github.com/yr-lang/yr"
+      GitHub
+    _a .try href="https://app.yrkit.com/"
+      Try in Yrkit
+_ .scrim aria-hidden="true"
+_aside .sidebar #sidebar
+  _nav .side
+    _p .side-title
+      Introduction
+    _a .side-link.is-active href="#overview"
+      Overview
+    _a .side-link href="#markers"
+      The markers
+    _a .side-link href="#try"
+      Try Yr
+    _p .side-title
+      AI
+    _a .side-link href="#build"
+      Easy for AI
+    _a .side-link href="#why"
+      Why AI writes Yr
+    _a .side-link href="#teach"
+      Cheat sheet
+    _p .side-title
+      Reference
+    _a .side-link href="#api"
+      API
+    _a .side-link href="#syntax"
+      Syntax
+    _a .side-link href="#examples"
+      Examples
+    _p .side-title
+      Tools
+    _a .side-link href="#yrkit"
+      Yrkit
+    _a .side-link href="#yr-cli"
+      yr-cli
+    _p .side-title
+      Contribute
+    _a .side-link href="#free"
+      Free to use
+    _a .side-link href="#support"
+      Support the project
+    _p .side-title
+      Elsewhere
+    _a .side-link href="https://github.com/yr-lang/yr"
+      GitHub
+    _a .side-link href="https://app.yrkit.com/"
+      Yrkit
+_main .main
+  _section #overview .block
+    _article #readme .readme aria-busy="true"
+      _p .readme__status
+        Loading documentation…
+  _section #markers .block
+    _h2
+      The markers
+    _p
+      That is the whole syntax. Everything inside a section is code you already know.
+    _ .markers
+      _ .m
+        _code .glyph aria-hidden="true"
+          &gt;&lt;
+        _h3
+          Body
+        _p
+          HTML inside the body. Place elements with
+          _code
+            &#95;
+          &#46;
+      _ .m
+        _code .glyph aria-hidden="true"
+          &gt;&gt;
+        _h3
+          Head
+        _p
+          Meta tags, links and fonts.
+      _ .m
+        _code .glyph aria-hidden="true"
+          ##
+        _h3
+          CSS
+        _p
+          Regular CSS, injected as a style block.
+      _ .m
+        _code .glyph aria-hidden="true"
+          @@
+        _h3
+          Frontend JS
+        _p
+          JavaScript that runs in the browser.
+      _ .m
+        _code .glyph aria-hidden="true"
+          &amp;&amp;
+        _h3
+          Backend JS
+        _p
+          Node.js, compiled as
+          _code
+            app.js
+          &#46;
+      _ .m
+        _code .glyph aria-hidden="true"
+          **
+        _h3
+          DevOps
+        _p
+          Build, serve and deploy scripts.
+      _ .m
+        _code .glyph aria-hidden="true"
+          ++
+        _h3
+          Wrapper
+        _p
+          A reusable component with a slot for children.
+      _ .m
+        _code .glyph aria-hidden="true"
+          !!
+        _h3
+          Import
+        _p
+          Bring in another
+          _code
+            &#46;yr
+          file.
+      _ .m
+        _code .glyph aria-hidden="true"
+          --
+        _h3
+          NPM
+        _p
+          Packages installed at build time.
+    _a .more href="https://yr-lang.org/docs"
+      Full reference
+  _section #try .block
+    _h2
+      Try Yr
+    _p
+      This is a real Yr file running in your browser. Edit it and the preview updates.
+    _ .yrkit-preview
+      _ .yrkit-preview__bar
+        _span .yrkit-preview__filename
+          preview.yr
+      _ .yrkit-preview__editor-wrap
+        _ #yr-gutter .yrkit-preview__gutter aria-hidden="true"
+        _ .yrkit-preview__scroll
+          _pre #yr-mirror .yrkit-preview__mirror aria-hidden="true"
+          _textarea #yr-editor .yrkit-preview__editor spellcheck="false" wrap="off" autocapitalize="off" autocomplete="off" autocorrect="off" aria-label="Editor de código yr"
+      _iframe #yr-preview-frame .yrkit-preview__frame sandbox="allow-scripts allow-modals allow-forms" title="Pré-visualização"
+  _section #build .hero
+    _
+      _p .crumb
+        AI
+      _h2
+        A language easy for AI to build with.
+      _p .lead
+        Yr keeps a whole web project in one file, split by simple markers. The AI reads everything at once, changes only the section you asked for, and you can still read every line.
+      _ .actions
+        _a .btn href="https://app.yrkit.com/"
+          Try it in Yrkit
+        _a .btn.ghost href="https://yr-lang.org/docs"
+          Read the docs
+      _p .status
+        Open source, v0.x, early stage. Yr has no variables or loops of its own: logic lives in the JavaScript sections. What is here works, and it runs Yrkit in production.
+    _ .panel
+      _p .ask
+        Turn the title red and add a /health route.
+      _ .file
+        _ .tab
+        _ .code role="img" aria-label="A Yr file with sections for body, CSS, frontend JavaScript and backend JavaScript. The frontend and backend lines added by the AI are highlighted."
+      _p .cap
+        Only the
+        _code
+          @@
+        and
+        _code
+          &amp;&amp;
+        sections changed. The rest stayed as it was.
+  _section #why .block
+    _h2
+      Why AI writes Yr well
+    _p
+      Most projects are spread over dozens of files. Yr is built the other way around.
+    _ .cols
+      _
+        _h3
+          The whole feature in one place
+        _p
+          Page, style, browser code, server code and deploy scripts sit in the same
+          _code
+            &#46;yr
+          file. The AI reads a complete feature at once instead of chasing imports across folders.
+      _
+        _h3
+          Sections are clear boundaries
+        _p
+          Every section starts with a two-character marker. The AI finds the part to change, edits it, and leaves the rest of the file alone.
+      _
+        _h3
+          Nothing new inside
+        _p
+          Inside each section it is plain HTML, CSS, JavaScript, Node or Bash, which every AI already knows. The only new thing is a short list of markers.
+  _section #teach .block
+    _h2
+      Teach any AI Yr in one paste
+    _p
+      Copy this cheat sheet into your AI assistant, then ask it for a
+      _code
+        &#46;yr
+      file. It covers the markers you need for a full page.
+    _ .spec-head
+      _span
+        llm.txt
+      _button #copy .btn.ghost type="button"
+        Copy
+    _pre #spec tabindex="0"
+      Loading…
+  _section #api .block
+    _article #api-doc .readme aria-busy="true"
+      _p .readme__status
+        Loading documentation…
+  _section #syntax .block
+    _article #syntax-doc .readme aria-busy="true"
+      _p .readme__status
+        Loading documentation…
+  _section #examples .block
+    _article #examples-doc .readme aria-busy="true"
+      _p .readme__status
+        Loading documentation…
+  _section #yrkit .block
+    _h2
+      Yrkit is written in Yr
+    _p
+      Yrkit is the app where you build systems by talking to an AI. You describe what you want in plain language, and it writes the whole project for you.
+    _p
+      It is written entirely in Yr. Building Yrkit is what pushed the language forward: wherever the project needed something the language could not do yet, the language grew. Today it is the largest project running on Yr, and it works in production.
+    _ .shots
+      _figure
+        _img src="yrkit-prompt.png" alt="A chat prompt in Yrkit on the left and the generated app running on the right" loading="lazy"
+        _figcaption
+          A prompt in, a working app out.
+      _figure
+        _img src="yrkit-file.png" alt="The single .yr file behind the generated project, with its sections and markers visible" loading="lazy"
+        _figcaption
+          The whole project stays in one .yr file you can read and edit.
+    _ .actions
+      _a .btn href="https://yrkit.com/"
+        See Yrkit
+  _section #yr-cli .block
+    _h2
+      yr-cli
+    _p
+      yr-cli is the command line tool for Yr. It builds, serves and deploys your projects from the terminal.
+    _p
+      Install it globally with npm:
+    _pre .snippet
+      npm install -g @yr-lang/yr-cli
+    _ .actions
+      _a .btn href="https://www.npmjs.com/package/@yr-lang/yr-cli"
+        View on npm
+      _a .btn.ghost href="https://github.com/yr-lang/yr"
+        GitHub
+  _section #free .block
+    _h2
+      Free to use, free to study
+    _ .cols
+      _
+        _h3
+          Yr
+        _p
+          The language itself: parser, compiler and runtime. MIT-compatible for personal and commercial use.
+        _a href="https://github.com/yr-lang/yr"
+          GitHub
+      _
+        _h3
+          yr-cli
+        _p
+          Command line tools: build, serve and deploy. Install globally with npm and run Yr projects anywhere.
+        _a href="https://www.npmjs.com/package/@yr-lang/yr-cli"
+          npm
+      _
+        _h3
+          @yr-lang/yr
+        _p
+          The npm package. Use Yr from your own Node.js projects or inside your own tools.
+        _a href="https://www.npmjs.com/package/@yr-lang/yr"
+          npm
+  _section #support .block
+    _h2
+      Support the project
+    _p
+      Yr is a solo developer project. If it is useful to you, consider supporting its development. It helps keep the infrastructure running and the language moving forward.
+    _ .actions
+      _a .btn href="https://github.com/sponsors/mwtheus"
+        Sponsor on GitHub
+      _a .btn.ghost href="https://buy.stripe.com/14AfZgbBffK12Iu1FD0VO00"
+        Donate by card
+      _a .btn.ghost href="https://nubank.com.br/cobrar/15ugw7/6978059d-da23-4cf2-81f7-ac4e309b47aa"
+        Pix
+    _p .disclaimer
+      Donations do not grant ownership, governance rights, or special influence over the Yr language or ecosystem.
+  _footer
+    _span
+      © 2026 yr-lang™
+    _nav
+      _a href="https://yr-lang.org/docs"
+        Docs
+      _a href="https://github.com/yr-lang/yr"
+        GitHub
+      _a href="https://www.npmjs.com/package/@yr-lang/yr"
+        npm
+      _a href="https://yrkit.com/"
+        Yrkit
+      _a href="mailto:social.lucassouza@gmail.com"
+        Email
+
+##
+
+:root {
+  --bg: #f5f2ec;
+  --surface: #fbfaf7;
+  --surface-2: #ebe7de;
+  --ink: #141413;
+  --muted: #69665e;
+  --line: #d9d4c8;
+  --blue: #d9421c;
+  --blue-hi: #b5340f;
+  --blue-soft: #f3e2da;
+  --code-ink: #3d3b36;
+  --serif: "Inter", system-ui, sans-serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --header-h: 54px;
+  --side-w: 264px;
+  --content-w: 1040px;
+  --pad-x: 48px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 16px);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--blue);
+}
+
+code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  color: var(--code-ink);
+  background: var(--surface-2);
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: var(--header-h);
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.menu-toggle {
+  display: none;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background: var(--surface-2);
+}
+
+/* Desenha as três barras sem markup extra */
+.menu-toggle::before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.logo-mark {
+  display: block;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.scrim {
+  display: none;
+}
+
+.logo em {
+  color: var(--blue);
+  font-style: normal;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.nav a {
+  padding: 8px 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.nav a:hover {
+  color: var(--blue);
+}
+
+.nav .try {
+  margin-left: 8px;
+  padding: 8px 16px;
+  color: var(--bg);
+  background: var(--ink);
+  border-radius: 4px;
+}
+
+.nav .try:hover {
+  background: #34332f;
+  color: var(--bg);
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  bottom: 0;
+  width: var(--side-w);
+  padding: 28px 18px 48px;
+  overflow-y: auto;
+  background: var(--bg);
+  border-right: 1px solid var(--line);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.side-title {
+  margin: 26px 10px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.side-title:first-child {
+  margin-top: 0;
+}
+
+.side-link {
+  display: block;
+  padding: 7px 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0 7px 7px 0;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, background 0.15s;
+}
+
+.side-link:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+.side-link.is-active {
+  color: var(--blue);
+  background: var(--blue-soft);
+  border-left-color: var(--blue);
+}
+
+.side-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 2px 0 8px;
+}
+
+.side-sub-link {
+  display: block;
+  padding: 4px 10px 4px 24px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.35;
+  text-decoration: none;
+  border-left: 2px solid var(--line);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.side-sub-link:hover {
+  color: var(--blue);
+  border-left-color: var(--blue);
+}
+
+.main {
+  min-width: 0;
+  margin-left: var(--side-w);
+}
+
+.block,
+.hero,
+footer {
+  max-width: var(--content-w);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+.block {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  border-top: 1px solid var(--line);
+}
+
+.main > .block:first-child {
+  padding-top: 32px;
+  border-top: 0;
+}
+
+.hero {
+  padding-top: 72px;
+  padding-bottom: 72px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+}
+
+.hero > div:first-child {
+  min-width: 0;
+}
+
+.crumb {
+  margin: 0 0 14px;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--blue);
+}
+
+h1 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 0 0 16px;
+}
+
+.hero h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  line-height: 1.08;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 22px 0 0;
+  font-size: 1.15rem;
+}
+
+.readme {
+  margin-top: 0;
+  max-width: 72ch;
+}
+
+.readme > :first-child {
+  margin-top: 0;
+}
+
+.readme__status {
+  margin: 0;
+  color: var(--muted);
+}
+
+.readme h1,
+.readme h2,
+.readme h3,
+.readme h4 {
+  font-family: var(--sans);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 40px 0 12px;
+}
+
+.readme h1 {
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+}
+
+.readme h2 {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.readme h3 {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.readme p,
+.readme li {
+  color: var(--muted);
+}
+
+.readme ul,
+.readme ol {
+  padding-left: 22px;
+}
+
+.readme li {
+  margin: 6px 0;
+}
+
+.readme a {
+  color: var(--blue);
+  text-underline-offset: 3px;
+}
+
+.readme a:hover {
+  color: var(--blue-hi);
+}
+
+.readme code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--code-ink);
+  background: var(--surface-2);
+  padding: 0.15em 0.42em;
+  border-radius: 5px;
+}
+
+.readme pre {
+  max-height: none;
+  margin: 16px 0;
+  padding: 18px;
+  overflow: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.readme pre code {
+  padding: 0;
+  background: none;
+  font-size: 0.85rem;
+}
+
+.readme blockquote {
+  margin: 16px 0;
+  padding: 4px 18px;
+  color: var(--muted);
+  border-left: 3px solid var(--line);
+}
+
+.readme hr {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.readme img {
+  max-width: 100%;
+  height: auto;
+}
+
+.readme table {
+  width: 100%;
+  margin: 16px 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.readme th,
+.readme td {
+  padding: 8px 12px;
+  text-align: left;
+  border: 1px solid var(--line);
+}
+
+.readme th {
+  background: var(--surface-2);
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  background: #34332f;
+  border-color: #34332f;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn.ghost:hover {
+  background: var(--surface-2);
+}
+
+.status {
+  margin: 28px 0 0;
+  max-width: 52ch;
+  padding-top: 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  border-top: 1px solid var(--line);
+}
+
+.panel {
+  min-width: 0;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 6px 6px 0 var(--surface-2);
+}
+
+.ask {
+  max-width: 100%;
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.97rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.file {
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.tab {
+  min-height: 36px;
+  padding: 9px 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.code {
+  padding: 14px 0;
+  overflow-x: auto;
+  color: var(--code-ink);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.l {
+  width: max-content;
+  min-width: 100%;
+  padding: 0 16px;
+  white-space: pre;
+}
+
+.l.hl {
+  background: var(--blue-soft);
+  box-shadow: inset 3px 0 0 var(--blue);
+}
+
+.mk {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.cap {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.panel .ask,
+.panel .file,
+.panel .cap,
+.panel .code .l {
+  opacity: 0;
+}
+
+.panel.is-sent .ask {
+  animation: ask-in 0.45s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+
+.panel.is-received .file {
+  animation: file-in 0.5s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+}
+
+.panel .code .l.is-on {
+  animation: line-in 0.28s ease forwards;
+}
+
+.panel.is-received .cap {
+  animation: line-in 0.4s ease 0.5s forwards;
+}
+
+.panel.is-static .ask,
+.panel.is-static .file,
+.panel.is-static .cap,
+.panel.is-static .code .l {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+@keyframes ask-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes file-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes line-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.block > p {
+  max-width: 60ch;
+  margin: 0;
+  color: var(--muted);
+}
+
+.block > p + p {
+  margin-top: 14px;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 44px;
+}
+
+.cols > div {
+  padding-left: 22px;
+  border-left: 1px solid var(--line);
+}
+
+.cols p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.cols a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--blue);
+  font-weight: 500;
+  text-underline-offset: 4px;
+}
+
+.cols a:hover {
+  color: var(--blue-hi);
+}
+
+.spec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+  padding: 10px 10px 10px 18px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+}
+
+.spec-head .btn {
+  padding: 7px 16px;
+  font-size: 0.88rem;
+}
+
+pre {
+  max-height: 380px;
+  margin: 0;
+  padding: 20px 18px;
+  overflow: auto;
+  color: var(--code-ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0 0 6px 6px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  tab-size: 2;
+}
+
+.snippet {
+  margin-top: 16px;
+  border-radius: 6px;
+}
+
+.markers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 40px;
+  margin-top: 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.m {
+  padding: 24px 0 28px;
+  border-top: 1px solid var(--line);
+}
+
+.glyph {
+  display: block;
+  width: max-content;
+  margin-bottom: 12px;
+  padding: 0;
+  background: none;
+  color: var(--blue);
+  font-family: var(--mono);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.m h3 {
+  margin-bottom: 4px;
+}
+
+.m p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--blue);
+  font-weight: 500;
+  text-underline-offset: 4px;
+}
+
+.more:hover {
+  color: var(--blue-hi);
+}
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.shots figure {
+  margin: 0;
+}
+
+.shots img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 6px 6px 0 var(--surface-2);
+}
+
+.shots figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.disclaimer {
+  margin: 28px 0 0;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer {
+  padding-top: 32px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--line);
+}
+
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--blue);
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+
+  .lead,
+  .status {
+    max-width: 60ch;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .scrim {
+    position: fixed;
+    inset: var(--header-h) 0 0 0;
+    z-index: 25;
+    display: block;
+    background: rgba(20, 20, 19, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .scrim.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar {
+    z-index: 26;
+    width: min(86vw, var(--side-w));
+    box-shadow: 8px 0 24px rgba(20, 20, 19, 0.14);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar.is-open {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --pad-x: 24px;
+  }
+
+  .cols {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .markers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .block,
+  .hero {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .main > .block:first-child {
+    padding-top: 24px;
+  }
+
+  footer {
+    padding-top: 28px;
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .top {
+    padding: 0 16px;
+  }
+
+  .nav .plain {
+    display: none;
+  }
+
+  .markers {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .panel {
+    padding: 14px;
+    box-shadow: 4px 4px 0 var(--surface-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn,
+  .nav a,
+  .side-link,
+  .scrim,
+  .sidebar {
+    transition: none;
+  }
+}
+
+/* Preview interativo: editor yr -> iframe */
+.yrkit-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  margin: 8px 0 28px;
+}
+
+.yrkit-preview__bar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.yrkit-preview__bar::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 16px 0 0 var(--blue-hi), 32px 0 0 var(--line);
+  margin-right: 38px;
+}
+
+.yrkit-preview__filename::before {
+  content: "// ";
+  color: var(--blue-hi);
+}
+
+.yrkit-preview__editor-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr;
+  height: 40svh;
+  max-height: 40svh;
+  min-height: 220px;
+  background: var(--bg);
+  border-right: 1px solid var(--line);
+  transition: box-shadow 0.15s ease;
+}
+
+.yrkit-preview__editor-wrap:focus-within {
+  box-shadow: inset 3px 0 0 var(--blue);
+}
+
+.yrkit-preview__gutter {
+  overflow: hidden;
+  padding: 16px 10px 16px 14px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: right;
+  white-space: pre;
+  user-select: none;
+  background: var(--surface-2);
+}
+
+.yrkit-preview__scroll {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.yrkit-preview__mirror,
+.yrkit-preview__editor {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 16px 18px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  tab-size: 2;
+  white-space: pre;
+}
+
+.yrkit-preview__mirror {
+  overflow: hidden;
+  color: var(--ink);
+  pointer-events: none;
+}
+
+.yrkit-preview__editor {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  color: transparent;
+  background: transparent;
+  border: none;
+  resize: none;
+  caret-color: transparent;
+}
+
+.yrkit-preview__editor:focus {
+  outline: none;
+}
+
+.yrkit-preview__editor::selection {
+  background: var(--blue-soft);
+}
+
+.yrkit-preview__caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-right: -2px;
+  vertical-align: text-bottom;
+  background: var(--blue);
+  animation: yrkit-caret 1s step-end infinite;
+}
+
+@keyframes yrkit-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+.yrkit-preview__frame {
+  width: 100%;
+  height: 100%;
+  max-height: 40svh;
+  min-height: 220px;
+  background: #ffffff;
+  border: none;
+}
+
+@media (max-width: 620px) {
+  .shots {
+    grid-template-columns: 1fr;
+  }
+
+  .yrkit-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .yrkit-preview__editor-wrap {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    height: 40svh;
+    min-height: 200px;
+  }
+
+  .yrkit-preview__frame {
+    height: 40svh;
+    min-height: 200px;
+  }
+}
+
+@>
+
+(function () {
+  function init() {
+    var button = document.getElementById('copy');
+    var spec = document.getElementById('spec');
+    var timer;
+
+    function label(text) {
+      if (!button) return;
+      button.textContent = text;
+      clearTimeout(timer);
+      timer = setTimeout(function () { button.textContent = 'Copy'; }, 2200);
+    }
+
+    function selectText() {
+      if (!spec) return;
+      var range = document.createRange();
+      range.selectNodeContents(spec);
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      label('Selected, press Ctrl+C');
+    }
+
+    if (button && spec) {
+      button.addEventListener('click', function () {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(spec.textContent).then(
+            function () { label('Copied'); },
+            selectText
+          );
+        } else {
+          selectText();
+        }
+      });
+    }
+
+    var links = Array.prototype.slice.call(document.querySelectorAll('.side-link[href^="#"]'));
+    var targets = links.map(function (link) {
+      return document.getElementById(link.getAttribute('href').slice(1));
+    });
+
+    function setActive(id) {
+      links.forEach(function (link) {
+        link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+      });
+    }
+
+    var sections = targets.filter(function (t) { return t; });
+
+    // Ordena pela posição real no documento: a ordem dos links na sidebar
+    // não precisa ser a mesma das seções (ex.: "yr-cli" fica dentro de
+    // "Free to use"), e o destaque depende dessa ordem.
+    sections.sort(function (a, b) {
+      if (a === b) return 0;
+      if (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+      if (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+      return 0;
+    });
+
+    // A linha de referência fica logo abaixo do cabeçalho fixo. Usamos a
+    // altura real do cabeçalho em vez do scroll-padding-top, que é um
+    // calc() e vira NaN ao passar por parseFloat.
+    function headerOffset() {
+      var header = document.querySelector('.top');
+      return (header ? header.offsetHeight : 54) + 24;
+    }
+
+    function updateActive() {
+      if (!sections.length) return;
+
+      // No fim da página a última seção pode nunca alcançar a linha de
+      // referência; nesse caso destacamos direto a última.
+      var atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) {
+        setActive(sections[sections.length - 1].id);
+        return;
+      }
+
+      var line = headerOffset();
+      var current = sections[0];
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].getBoundingClientRect().top <= line) current = sections[i];
+      }
+      setActive(current.id);
+    }
+
+    // Exposto para os carregadores assíncronos (docs, cheat sheet) avisarem
+    // quando a altura da página mudou.
+    window.yrRefreshActive = updateActive;
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    window.addEventListener('hashchange', updateActive);
+    window.addEventListener('load', updateActive);
+    updateActive();
+
+    initPanel();
+  }
+
+  function initPanel() {
+    var panel = document.querySelector('.panel');
+    if (!panel) return;
+
+    var tab = panel.querySelector('.tab');
+    var code = panel.querySelector('.code');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (tab) tab.textContent = 'hello.yr';
+
+    var script = [
+      { mk: '><' },
+      { text: '_ .container' },
+      { text: '_ h1' },
+      { text: 'My page' },
+      { blank: true },
+      { mk: '##' },
+      { text: '.container { max-width: 800px; margin: 0 auto; }' },
+      { blank: true },
+      { mk: '@@' },
+      { text: "document.querySelector('h1').style.color = 'red';", hl: true },
+      { blank: true },
+      { mk: '&&' },
+      { text: "app.get('/', (req, res) => res.render('index'));" },
+      { text: "app.get('/health', (req, res) => res.send('ok'));", hl: true }
+    ];
+
+    function buildLine(row) {
+      var el = document.createElement('div');
+      el.className = 'l' + (row.hl ? ' hl' : '');
+      if (row.blank) {
+        el.textContent = '\u00A0';
+      } else if (row.mk) {
+        var mark = document.createElement('span');
+        mark.className = 'mk';
+        mark.textContent = row.mk;
+        el.appendChild(mark);
+      } else {
+        el.textContent = row.text;
+      }
+      return el;
+    }
+
+    var lines = [];
+    if (code) {
+      script.forEach(function (row) {
+        var el = buildLine(row);
+        code.appendChild(el);
+        lines.push(el);
+      });
+    }
+
+    if (reduce) {
+      panel.classList.add('is-static');
+      return;
+    }
+
+    setTimeout(function () {
+      panel.classList.add('is-sent');
+      setTimeout(function () {
+        panel.classList.add('is-received');
+        lines.forEach(function (el, i) {
+          setTimeout(function () { el.classList.add('is-on'); }, i * 90);
+        });
+      }, 600);
+    }, 300);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
+// ---------- Menu do mobile: abre e fecha a barra lateral ----------
+(function () {
+  var toggle = document.getElementById("menu-toggle");
+  var sidebar = document.getElementById("sidebar");
+  var scrim = document.querySelector(".scrim");
+  if (!toggle || !sidebar) return;
+
+  function setMenu(open) {
+    sidebar.classList.toggle("is-open", open);
+    if (scrim) scrim.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  }
+
+  toggle.addEventListener("click", function () {
+    setMenu(!sidebar.classList.contains("is-open"));
+  });
+
+  if (scrim) scrim.addEventListener("click", function () { setMenu(false); });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") setMenu(false);
+  });
+
+  // Fecha ao escolher um link: o alvo pode ficar escondido atrás do drawer.
+  sidebar.addEventListener("click", function (event) {
+    if (event.target.closest && event.target.closest("a")) setMenu(false);
+  });
+
+  // Em telas largas a barra fica sempre visível; garante estado limpo.
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 1024) setMenu(false);
+  });
+})();
+
+// ---------- Docs: renderiza arquivos .md do repositório de docs ----------
+(function () {
+  var BASE = "https://raw.githubusercontent.com/yr-lang/docs/refs/heads/main/";
+  var DOCS = [
+    { id: "readme", file: "README.md", section: "overview" },
+    { id: "api-doc", file: "api.md", section: "api" },
+    { id: "syntax-doc", file: "syntax.md", section: "syntax" },
+    { id: "examples-doc", file: "examples.md", section: "examples" }
+  ];
+
+  function slug(text) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
+  }
+
+  function renderMarkdown(host, md) {
+    if (window.marked) {
+      var html = typeof window.marked.parse === "function"
+        ? window.marked.parse(md)
+        : window.marked(md);
+      host.innerHTML = html;
+      return;
+    }
+    // Fallback: sem parser, mostra o markdown cru em vez de quebrar.
+    var pre = document.createElement("pre");
+    pre.textContent = md;
+    host.replaceChildren(pre);
+  }
+
+  // Cada "##" do markdown vira uma subsubseção: o heading ganha um id e
+  // um link aninhado na barra lateral, logo abaixo da subseção.
+  function buildSubSections(host, section) {
+    var headings = host.querySelectorAll("h2");
+    var link = document.querySelector('.side-link[href="#' + section + '"]');
+    if (!headings.length || !link) return;
+
+    var nav = document.createElement("div");
+    nav.className = "side-sub";
+
+    Array.prototype.forEach.call(headings, function (heading) {
+      var id = section + "--" + (slug(heading.textContent) || "section");
+      heading.id = id;
+
+      var item = document.createElement("a");
+      item.className = "side-sub-link";
+      item.href = "#" + id;
+      item.textContent = heading.textContent;
+      nav.appendChild(item);
+    });
+
+    link.insertAdjacentElement("afterend", nav);
+  }
+
+  function loadDoc(doc) {
+    var host = document.getElementById(doc.id);
+    if (!host) return Promise.resolve();
+
+    return fetch(BASE + doc.file)
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.text();
+      })
+      .then(function (md) {
+        renderMarkdown(host, md);
+        buildSubSections(host, doc.section);
+        host.setAttribute("aria-busy", "false");
+      })
+      .catch(function (err) {
+        var p = document.createElement("p");
+        p.className = "readme__status";
+        p.textContent = "Could not load the documentation. " + err.message;
+        host.replaceChildren(p);
+        host.setAttribute("aria-busy", "false");
+      });
+  }
+
+  Promise.all(DOCS.map(loadDoc)).then(function () {
+    // Com os docs carregados a página muda de altura: reposiciona quem
+    // entrou por um link âncora e reavalia a seção ativa.
+    if (location.hash) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) target.scrollIntoView();
+    }
+    if (typeof window.yrRefreshActive === "function") window.yrRefreshActive();
+  });
+})();
+
+// ---------- Cheat sheet: carrega o llm.txt no bloco de specs ----------
+(function () {
+  var SPEC_URL = "https://raw.githubusercontent.com/yr-lang/docs/refs/heads/main/llm.txt";
+  var spec = document.getElementById("spec");
+  if (!spec) return;
+
+  fetch(SPEC_URL)
+    .then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.text();
+    })
+    .then(function (text) {
+      spec.textContent = text;
+      if (typeof window.yrRefreshActive === "function") window.yrRefreshActive();
+    })
+    .catch(function (err) {
+      spec.textContent = "Could not load the cheat sheet. " + err.message;
+    });
+})();
+
+// ---------- Preview interativo: editor yr -> yr(value) -> iframe ----------
+function yrInitPreview() {
+  const yrEditor = document.getElementById("yr-editor");
+  const yrFrame = document.getElementById("yr-preview-frame");
+  const yrMirror = document.getElementById("yr-mirror");
+  const yrGutter = document.getElementById("yr-gutter");
+
+  // Exemplo inicial: HTML + CSS + uma seção JS (@@) que faz a mãozinha acenar
+  const YR_SAMPLE = [
+    "><",
+    "_ .card",
+    "  _h1 .title",
+    "    _span .wave",
+    "      👋",
+    "    Olá, yr!",
+    "  _p .hint",
+    "    Edite este código e veja o resultado ao vivo.",
+    "",
+    "##",
+    "body {",
+    "  margin: 0;",
+    "  font-family: system-ui, sans-serif;",
+    "  background: #0d1117;",
+    "  color: #e6edf3;",
+    "}",
+    ".card {",
+    "  max-width: 420px;",
+    "  margin: 48px auto;",
+    "  padding: 32px;",
+    "  text-align: center;",
+    "  background: #161b22;",
+    "  border: 1px solid #30363d;",
+    "  border-radius: 14px;",
+    "}",
+    ".title { margin: 0 0 8px; font-size: 1.6rem; }",
+    ".wave {",
+    "  display: inline-block;",
+    "  font-size: 2rem;",
+    "  transform-origin: 70% 80%;",
+    "}",
+    ".hint { margin: 0; color: #8b949e; }",
+    "",
+    "@@",
+    "const wave = document.querySelector('.wave');",
+    "let up = false;",
+    "setInterval(() => {",
+    "  wave.style.transform = up ? 'rotate(18deg)' : 'rotate(-12deg)';",
+    "  up = !up;",
+    "}, 350);"
+  ].join("\n");
+
+  // Desenha os números de linha e o cursor piscando na posição do caret
+  function renderEditor() {
+    if (!yrEditor) return;
+    const value = yrEditor.value;
+
+    if (yrGutter) {
+      const total = value.split("\n").length;
+      let out = "";
+      for (let i = 1; i <= total; i++) out += i + (i < total ? "\n" : "");
+      yrGutter.textContent = out;
+    }
+
+    if (yrMirror) {
+      const pos = yrEditor.selectionStart;
+      const caret = document.createElement("span");
+      caret.className = "yrkit-preview__caret";
+      yrMirror.replaceChildren(
+        document.createTextNode(value.slice(0, pos)),
+        caret,
+        document.createTextNode(value.slice(pos))
+      );
+    }
+  }
+
+  // Mantém goteira e espelho alinhados ao scroll do textarea
+  function syncEditorScroll() {
+    if (!yrEditor) return;
+    if (yrMirror) {
+      yrMirror.scrollTop = yrEditor.scrollTop;
+      yrMirror.scrollLeft = yrEditor.scrollLeft;
+    }
+    if (yrGutter) {
+      yrGutter.scrollTop = yrEditor.scrollTop;
+    }
+  }
+
+  function renderPreview(source) {
+    if (!yrFrame) return;
+    try {
+      const result = yr(source);
+      yrFrame.srcdoc = (result && result.parsedhtml) || "";
+    } catch (err) {
+      yrFrame.srcdoc =
+        '<pre style="margin:0;padding:14px;font-family:monospace;font-size:13px;'
+        + 'color:#b91c1c;white-space:pre-wrap">'
+        + String(err && err.message ? err.message : err) + "</pre>";
+    }
+  }
+
+  if (yrEditor) {
+    // Vira true assim que o usuário toca no editor: a partir daí não
+    // puxamos mais o caret para o fim, pra não atrapalhar a digitação.
+    let editorTouched = false;
+    const markTouched = () => { editorTouched = true; };
+    yrEditor.addEventListener("pointerdown", markTouched, { once: true });
+    yrEditor.addEventListener("keydown", markTouched, { once: true });
+
+    const refreshEditor = () => {
+      renderEditor();
+      syncEditorScroll();
+    };
+
+    // Deixa o caret no fim e rola até lá, pro cursor ficar visível
+    // (sincroniza goteira e espelho junto).
+    const scrollEditorToEnd = () => {
+      if (editorTouched) return;
+      const end = yrEditor.value.length;
+      yrEditor.setSelectionRange(end, end);
+      renderEditor();
+      // Ler scrollHeight força o recálculo do layout; sem isso a
+      // atribuição de scrollTop pode ser ignorada ou "curta demais".
+      void yrEditor.scrollHeight;
+      yrEditor.scrollTop = yrEditor.scrollHeight;
+      syncEditorScroll();
+    };
+
+    // rAF duplo garante que roda depois do primeiro layout/paint.
+    const scheduleScrollToEnd = () => {
+      requestAnimationFrame(() => requestAnimationFrame(scrollEditorToEnd));
+    };
+
+    // Atualiza o valor do editor e reagenda o scroll até o fim.
+    const setEditorValue = (text) => {
+      yrEditor.value = text;
+      refreshEditor();
+      renderPreview(text);
+      scheduleScrollToEnd();
+    };
+
+    yrEditor.addEventListener("change", () => {
+      refreshEditor();
+      renderPreview(yrEditor.value);
+    });
+    ["click", "keyup", "focus", "select"].forEach(ev =>
+      yrEditor.addEventListener(ev, refreshEditor)
+    );
+    yrEditor.addEventListener("scroll", syncEditorScroll);
+    // Move o cursor piscando quando a seleção muda (arrasto, setas, etc.)
+    document.addEventListener("selectionchange", () => {
+      if (document.activeElement === yrEditor) refreshEditor();
+    });
+
+    // Valor inicial + rolagem até o fim.
+    setEditorValue(YR_SAMPLE);
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", yrInitPreview);
+} else {
+  yrInitPreview();
+}
