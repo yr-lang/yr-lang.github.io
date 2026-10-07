@@ -13,8 +13,8 @@ cp -r dist/ ../docs
 _meta charset="utf-8"
 _meta name="viewport" content="width=device-width, initial-scale=1"
 _title
-  Yr — the language that both people and AI can understand
-_meta name="description" content="Yr keeps a whole web project in one file, split by simple markers. AI reads it in one go, edits only the section you asked for, and you can still read every line."
+  yr — the language that both people and AI can understand
+_meta name="description" content="yr keeps a whole web project in one file, split by simple markers. AI reads it in one go, edits only the section you asked for, and you can still read every line."
 _meta name="theme-color" content="#f5f2ec"
 _link rel="preconnect" href="https://fonts.googleapis.com"
 _link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
@@ -30,8 +30,8 @@ _header .top #top
     _button .menu-toggle #menu-toggle type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu"
     _a .logo href="/"
       _img .logo-mark src="https://yrkit.site/logo-transparent.png" alt="" width="26" height="26"
-      _span
-        Yr
+      _span style="display:inline-flex"
+        yr
         _em
           -lang
   _nav .nav
@@ -49,13 +49,13 @@ _aside .sidebar #sidebar
     _a .side-link href="#markers"
       The markers
     _a .side-link href="#try"
-      Try Yr
+      Try yr
     _p .side-title
       AI
     _a .side-link href="#build"
       Easy for AI
     _a .side-link href="#why"
-      Why AI writes Yr
+      Why AI writes yr
     _a .side-link href="#teach"
       Cheat sheet
     _p .side-title
@@ -171,7 +171,7 @@ _main .main
       Full reference
   _section #try .block
     _h2
-      Try Yr
+      Try yr
     _p
       This is a real Yr file running in your browser. Edit it and the preview updates.
     _ .yrkit-preview
@@ -191,20 +191,20 @@ _main .main
       _h2
         A language easy for AI to build with.
       _p .lead
-        Yr keeps a whole web project in one file, split by simple markers. The AI reads everything at once, changes only the section you asked for, and you can still read every line.
+        yr keeps a whole web project in one file, split by simple markers. The AI reads everything at once, changes only the section you asked for, and you can still read every line.
       _ .actions
         _a .btn href="https://app.yrkit.com/"
           Try it in Yrkit
         _a .btn.ghost href="https://yr-lang.org/docs"
           Read the docs
       _p .status
-        Open source, v0.x, early stage. Yr has no variables or loops of its own: logic lives in the JavaScript sections. What is here works, and it runs Yrkit in production.
+        Open source, v0.x, early stage. yr has no variables or loops of its own: logic lives in the JavaScript sections. What is here works, and it runs Yrkit in production.
     _ .panel
       _p .ask
         Turn the title red and add a /health route.
       _ .file
         _ .tab
-        _ .code role="img" aria-label="A Yr file with sections for body, CSS, frontend JavaScript and backend JavaScript. The frontend and backend lines added by the AI are highlighted."
+        _ .code role="img" aria-label="A yr file with sections for body, CSS, frontend JavaScript and backend JavaScript. The frontend and backend lines added by the AI are highlighted."
       _p .cap
         Only the
         _code
@@ -215,9 +215,9 @@ _main .main
         sections changed. The rest stayed as it was.
   _section #why .block
     _h2
-      Why AI writes Yr well
+      Why AI writes yr well
     _p
-      Most projects are spread over dozens of files. Yr is built the other way around.
+      Most projects are spread over dozens of files. yr is built the other way around.
     _ .cols
       _
         _h3
@@ -239,7 +239,7 @@ _main .main
           Inside each section it is plain HTML, CSS, JavaScript, Node or Bash, which every AI already knows. The only new thing is a short list of markers.
   _section #teach .block
     _h2
-      Teach any AI Yr in one paste
+      Teach any AI yr in one paste
     _p
       Copy this cheat sheet into your AI assistant, then ask it for a
       _code
@@ -266,18 +266,18 @@ _main .main
         Loading documentation…
   _section #yrkit .block
     _h2
-      Yrkit is written in Yr
+      Yrkit is written in yr
     _p
       Yrkit is the app where you build systems by talking to an AI. You describe what you want in plain language, and it writes the whole project for you.
     _p
-      It is written entirely in Yr. Building Yrkit is what pushed the language forward: wherever the project needed something the language could not do yet, the language grew. Today it is the largest project running on Yr, and it works in production.
+      It is written entirely in yr. Building Yrkit is what pushed the language forward: wherever the project needed something the language could not do yet, the language grew. Today it is the largest project running on yr, and it works in production.
     _ .shots
       _figure
-        _img src="https://yrkit.site/yrkit-gif3.gif" alt="A chat prompt in Yrkit on the left and the generated app running on the right" loading="lazy"
+        _img src="https://yrkit.site/yrkit-gif5.gif" alt="A chat prompt in Yrkit on the left and the generated app running on the right" loading="lazy"
         _figcaption
           A prompt in, a working app out.
       _figure
-        _img src="https://yrkit.site/yrkit-gif5.gif" alt="The single .yr file behind the generated project, with its sections and markers visible" loading="lazy"
+        _img src="https://yrkit.site/yrkit-gif6.gif" alt="The single .yr file behind the generated project, with its sections and markers visible" loading="lazy"
         _figcaption
           The whole project stays in one .yr file you can read and edit.
     _ .actions
@@ -287,7 +287,7 @@ _main .main
     _h2
       yr-cli
     _p
-      yr-cli is the command line tool for Yr. It builds, serves and deploys your projects from the terminal.
+      yr-cli is the command line tool for yr. It builds, serves and deploys your projects from the terminal.
     _p
       Install it globally with npm:
     _pre .snippet
@@ -303,7 +303,7 @@ _main .main
     _ .cols
       _
         _h3
-          Yr
+          yr
         _p
           The language itself: parser, compiler and runtime. MIT-compatible for personal and commercial use.
         _a href="https://github.com/yr-lang/yr"
@@ -326,7 +326,7 @@ _main .main
     _h2
       Support the project
     _p
-      Yr is a solo developer project. If it is useful to you, consider supporting its development. It helps keep the infrastructure running and the language moving forward.
+      yr is a solo developer project. If it is useful to you, consider supporting its development. It helps keep the infrastructure running and the language moving forward.
     _ .actions
       _a .btn href="https://github.com/sponsors/mwtheus"
         Sponsor on GitHub
@@ -473,8 +473,8 @@ code {
 
 .logo-mark {
   display: block;
-  width: 26px;
-  height: 26px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
@@ -494,9 +494,9 @@ code {
 }
 
 .nav a {
-  padding: 8px 12px;
+  padding: 5px 10px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.15s;
@@ -508,7 +508,7 @@ code {
 
 .nav .try {
   margin-left: 8px;
-  padding: 8px 16px;
+  padding: 5px 12px;
   color: var(--bg);
   background: var(--ink);
   border-radius: 4px;
@@ -1073,6 +1073,7 @@ pre {
 .snippet {
   margin-top: 16px;
   border-radius: 6px;
+  display: flex;
 }
 
 .markers {
