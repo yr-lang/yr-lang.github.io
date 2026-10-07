@@ -13,7 +13,7 @@ cp -r dist/ ../docs
 _meta charset="utf-8"
 _meta name="viewport" content="width=device-width, initial-scale=1"
 _title
-  Yr — the language that both people AI can understand
+  Yr — the language that both people and AI can understand
 _meta name="description" content="Yr keeps a whole web project in one file, split by simple markers. AI reads it in one go, edits only the section you asked for, and you can still read every line."
 _meta name="theme-color" content="#f5f2ec"
 _link rel="preconnect" href="https://fonts.googleapis.com"
@@ -21,6 +21,7 @@ _link rel="preconnect" href="https://fonts.gstatic.com" crossorigin
 _link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"
 _script src="https://cdn.yr-lang.org/yr.js"
 _script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+_link rel="icon" href="https://yrkit.site/favicon.ico" sizes="any"
 
 ><
 
@@ -28,14 +29,12 @@ _header .top #top
   _ .top-left
     _button .menu-toggle #menu-toggle type="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu"
     _a .logo href="/"
-      _img .logo-mark src="logo.svg" alt="" width="26" height="26"
+      _img .logo-mark src="https://yrkit.site/logo-transparent.png" alt="" width="26" height="26"
       _span
         Yr
         _em
           -lang
   _nav .nav
-    _a .plain href="https://yr-lang.org/docs"
-      Docs
     _a .plain href="https://github.com/yr-lang/yr"
       GitHub
     _a .try href="https://app.yrkit.com/"
@@ -274,11 +273,11 @@ _main .main
       It is written entirely in Yr. Building Yrkit is what pushed the language forward: wherever the project needed something the language could not do yet, the language grew. Today it is the largest project running on Yr, and it works in production.
     _ .shots
       _figure
-        _img src="yrkit-prompt.png" alt="A chat prompt in Yrkit on the left and the generated app running on the right" loading="lazy"
+        _img src="https://yrkit.site/yrkit-gif3.gif" alt="A chat prompt in Yrkit on the left and the generated app running on the right" loading="lazy"
         _figcaption
           A prompt in, a working app out.
       _figure
-        _img src="yrkit-file.png" alt="The single .yr file behind the generated project, with its sections and markers visible" loading="lazy"
+        _img src="https://yrkit.site/yrkit-gif5.gif" alt="The single .yr file behind the generated project, with its sections and markers visible" loading="lazy"
         _figcaption
           The whole project stays in one .yr file you can read and edit.
     _ .actions
